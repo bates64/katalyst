@@ -42,7 +42,6 @@ export default class ATM {
     /** Find largest value < quantity */
     findBestItemForQuantity(quantity) {
         for (const item of this.content) {
-            //console.log(item.value, "<=", quantity)
             if (item.value <= quantity && item.count > 0) {
                 return item;
             }
