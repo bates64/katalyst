@@ -1,0 +1,15 @@
+{
+  "name": "atm",
+  "version": "1.0.0",
+  "description": "ATM machine",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "ava"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^5.2.0"
+  }
+}
