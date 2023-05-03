@@ -14,9 +14,30 @@ export default class ATM {
     }
 
     withdraw(quantity) {
-        return `2 bills of 200.
-1 bill of 20.
-1 bill of 10.
-2 coins of 2.`
+        let result = '';
+
+        while (quantity > 0) {
+            const largestItem = this.findBestItemForQuantity(quantity);
+            if (!largestItem) throw new Error("no item for quantity");
+
+            // Subtract and output
+            const count = Math.floor(quantity / largestItem.value);
+            quantity = quantity % largestItem.value;
+            const s = count === 1 ? "" : "s";
+            result += `${count} ${largestItem.type}${s} of ${largestItem.value}.\n`;
+        }
+
+        return result;
+    }
+
+    /** Find largest value < quantity */
+    findBestItemForQuantity(quantity) {
+        for (const item of this.content) {
+            //console.log(item.value, "<=", quantity)
+            if (item.value <= quantity) {
+                return item;
+            }
+        }
+        return null;
     }
 }
