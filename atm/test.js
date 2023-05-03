@@ -4,11 +4,12 @@ import ATM from "./atm.js";
 test('example', t => {
     const atm = new ATM();
     const output = atm.withdraw(434);
-    t.is(output, `2 bills of 200.
-1 bill of 20.
-1 bill of 10.
-2 coins of 2.
-`);
+    t.deepEqual(output, [
+        { value: 200, type: 'bill', count: 2 },
+        { value:  20, type: 'bill', count: 1 },
+        { value:  10, type: 'bill', count: 1 },
+        { value:   2, type: 'coin', count: 2 },
+    ]);
 });
 
 test('findBestItemForQuantity(434) == 200', t => {

@@ -14,7 +14,7 @@ export default class ATM {
     }
 
     withdraw(quantity) {
-        let result = '';
+        let result = []
 
         while (quantity > 0) {
             const largestItem = this.findBestItemForQuantity(quantity);
@@ -23,8 +23,10 @@ export default class ATM {
             // Subtract and output
             const count = Math.floor(quantity / largestItem.value);
             quantity = quantity % largestItem.value;
-            const s = count === 1 ? "" : "s";
-            result += `${count} ${largestItem.type}${s} of ${largestItem.value}.\n`;
+            result.push({
+                count,
+                ...largestItem,
+            });
         }
 
         return result;
