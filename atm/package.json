@@ -2,7 +2,7 @@
   "name": "atm",
   "version": "1.0.0",
   "description": "ATM machine",
-  "main": "index.js",
+  "main": "atm.js",
   "type": "module",
   "scripts": {
     "test": "ava"
